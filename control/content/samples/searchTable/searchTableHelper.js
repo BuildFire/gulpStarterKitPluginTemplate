@@ -55,7 +55,6 @@ class SearchTableHelper{
 	}
 
 	_fetchNextPage(){
-		console.error("_fetchNextPage");
 		if(this.fetchingNextPage)return;
 		this.fetchingNextPage=true;
 		let t=this;
