@@ -71,22 +71,30 @@ const sortableListUI= {
 		}
 	}
 
-	,updateItem(item,index,divRow){
+	,updateItem(item,index,divRow,callback){
 		sortableListUI.sortableList.injectItemElements(item,index,divRow);
 		let cmd = {$set:{}};
 		cmd.$set['items.' + index] = item;
-		buildfire.datastore.save(cmd,this.tag,e=>{
-			if(e)console.error(e);
+		buildfire.datastore.save(cmd,this.tag,(err, data)=>{
+			if (err) {
+				console.error(err);
+				if (callback) return callback(err);
+			}
+			if(callback) return callback(null, data)
 		});
 
 	}
 
-	,addItem(item){
+	,addItem(item, callback){
 		let cmd = {
 			$push:{items:item}
 		};
-		buildfire.datastore.save(cmd, this.tag,e=>{
-			if(e)console.error(e);
+		buildfire.datastore.save(cmd, this.tag, (err, data)=>{
+			if(err) {
+				console.error(err);
+				if (callback) return callback(err)
+			}
+			if (callback) return callback(null, data)
 		});
 
 		sortableListUI.sortableList.append(item);
