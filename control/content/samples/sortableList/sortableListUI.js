@@ -69,9 +69,16 @@ const sortableListUI= {
 		this.sortableList.onOrderChange=(item, oldIndex, newIndex)=>{
 			buildfire.datastore.save({$set:{items:sortableListUI.sortableList.items}},this.tag,()=>{});
 		}
-	}
-
-	,updateItem(item,index,divRow,callback){
+	},
+	/**
+	 * Updates item in datastore and updates sortable list UI
+	 * @param {Object} item Item to be updated
+	 * @param {Number} index Array index of the item you are updating
+	 * @param {HTMLElement} divRow Html element (div) of the entire row that is being updated
+	 * @param {Function} callback Optional callback function
+	 */
+	updateItem(item,index,divRow,callback){
+		console.log(divRow)
 		sortableListUI.sortableList.injectItemElements(item,index,divRow);
 		let cmd = {$set:{}};
 		cmd.$set['items.' + index] = item;
@@ -83,9 +90,13 @@ const sortableListUI= {
 			if(callback) return callback(null, data)
 		});
 
-	}
-
-	,addItem(item, callback){
+	},
+	/**
+	 * This function adds item to datastore and updates sortable list UI
+	 * @param {Object} item Item to be added to datastore
+	 * @param {Function} callback Optional callback function
+	 */
+	addItem(item, callback){
 		let cmd = {
 			$push:{items:item}
 		};
