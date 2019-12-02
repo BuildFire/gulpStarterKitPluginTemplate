@@ -15,7 +15,7 @@ class ListView{
 	loadListViewItems(items){
 		if(this.container.innerHTML==""){
 			if(this.options.enableAddButton){
-				let addButton = ui.create("button",this.container,"<span></span>",["listViewAddButton", "btn", "btn--add", "btn--fab", "btn-primary"]);
+				let addButton = ui.create("button",this.container,"<span></span>",["listViewAddButton", "btn", "btn-add", "btn-fab", "btn-primary"]);
 				addButton.onclick = this.onAddButtonClicked;
 			}
 		}
@@ -92,19 +92,19 @@ class ListViewItem{
 			ui.create('i', imgContainer, null, ['listViewItemIcon']);
 		}
 
-		let listViewItemCopy= ui.create('div',card,null,['listViewItemCopy', 'ellipsis', 'padded', 'padded--m']);
+		let listViewItemCopy= ui.create('div',card,null,['listViewItemCopy', 'ellipsis', 'padded', 'padded-m']);
 
-		ui.create('h5',listViewItemCopy,this.title,['listViewItemTitle', 'ellipsis', 'margin--0']);
+		ui.create('h5',listViewItemCopy,this.title,['listViewItemTitle', 'ellipsis', 'margin-0']);
 
 		if(this.description)
-			ui.create('p',listViewItemCopy,this.description,['listViewItemDescription', 'ellipsis', 'margin--0']);
+			ui.create('p',listViewItemCopy,this.description,['listViewItemDescription', 'ellipsis', 'margin-0']);
 
 
 		let t = this;
 		if(this.toolbar && this.toolbar.length ){
 			let listViewItemToolbar = ui.create('div', card, null, ['listViewItemToolbar']);
 			this.toolbar.forEach(obj=>{
-				let i = ui.create('span', listViewItemToolbar, obj.text, ['listViewItemToolbarItem',obj.class]);
+				let i = ui.create('span', listViewItemToolbar, obj.text, ['listViewItemToolbarItem','btn-icon',obj.class]);
 				i.onclick = e=>{
 					t.onToolbarClicked(obj.key,t,e);
 					e.preventDefault();

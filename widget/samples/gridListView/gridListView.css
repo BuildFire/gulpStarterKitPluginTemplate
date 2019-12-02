@@ -1,0 +1,175 @@
+html {
+  font-size: 16px !important;
+}
+.gridLayout.gridList{
+  display: grid;
+  padding: .5rem;
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: .5rem;
+  grid-row-gap: .5rem;
+  padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+}
+@media(min-width:560px){
+  .gridLayout.gridList{
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+@media(min-width:680px){
+  .gridLayout.gridList{
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+.gridLayout .gridItem{
+  position: relative;
+  overflow: hidden;
+  padding: .5rem .5rem 0 .5rem;
+}
+.gridLayout .gridItem .toolbar{
+  position: absolute;
+  padding: .5rem;
+  padding-bottom: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.gridItem .toolbar button{
+  background-color: transparent !important;
+  border-color: transparent !important;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: .25rem;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 1.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  box-shadow: 0;
+  transition: background-color ease-in-out .1s, opacity ease-in-out .3s;
+}
+.gridItem .toolbar button:active {
+  background-color: rgba(150,150,150,.1) !important;
+}
+.gridLayout .gridItem .toolbar button{
+  color: #fff !important;
+}
+.gridItem .imageHolder img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gridLayout .gridItem .imageHolder{
+  height: 9rem;
+  overflow: hidden;
+  border-radius: .5rem;
+  position: relative;
+  box-shadow: 0 0.125rem 0.5rem rgba(50,50,50,.2);
+}
+.gridLayout .gridItem .imageHolder::before{
+  display: block;
+  content: '';
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: -moz-linear-gradient(top,rgba(0,0,0,.5) 0%,transparent 60%,transparent 100%);
+  background: -webkit-linear-gradient(top,rgba(0,0,0,.5) 0%,transparent 60%,transparent 100%);
+  background: linear-gradient(to bottom,rgba(0,0,0,.5) 0%,transparent 60%,transparent 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#00000000',GradientType=0 );
+}
+.gridLayout .gridItemTitle{
+  font-size: .875rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0;
+}
+.gridLayout .gridItemDetails{
+  font-size: .75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0;
+}
+.gridItemTitle{
+  font-weight: bold;
+}
+
+/* List View */
+.listLayout.gridList{
+  padding: .75rem;
+  padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+}
+.listLayout .gridItem{
+  border-radius: .5rem;
+  background-color: rgba(255,255,255,.1);
+  box-shadow: 0 0.125rem 0.5rem rgba(50,50,50,.2);
+  margin-bottom: .75rem;
+}
+.listLayout .gridItem .gridItemBody{
+  padding: 1rem .75rem 0 .75rem;
+}
+.listLayout .gridItem .imageHolder{
+  overflow: hidden;
+  border-radius: .5rem .5rem 0 0;
+  height: 12rem;
+}
+.listLayout .toolbar{
+  display: flex;
+  justify-content: flex-end;
+  padding: .25rem;
+}
+.listLayout .toolbar button:only-child{
+  margin-left: auto;
+}
+.listLayout .gridItemTitle{
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0;
+}
+.listLayout .gridItemDetails{
+  font-size: .875rem;
+  font-weight: normal;
+}
+
+
+/* Floating Button */
+.btn-fab{
+  width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.5rem;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  border: 0;
+  box-shadow: 0 .125rem .5rem rgba(50, 50, 50, 0.3);
+  background-color: #00a1f1;
+  border-radius: 50%;
+  transition: transform ease-in-out .1s, opacity ease-in-out .1s,;
+}
+.btn-fab.btn-add span{
+  display: block;
+  width: 1rem;
+  height: .125rem;
+  background-color: #fff;
+  margin-bottom: 0;
+}
+.btn-fab.btn-add span::before{
+  display: block;
+  content: '';
+  width: 1rem;
+  height: .125rem;
+  background-color: #fff;
+  margin-bottom: 0;
+  transform: rotate(90deg);
+}
+.btn-fab:active{
+    opacity: .9;
+    transform: scale(.95);
+}

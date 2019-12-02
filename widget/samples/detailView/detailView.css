@@ -1,0 +1,56 @@
+html{
+  font-size: 16px;
+}
+.toolbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255,255,255,.1);
+}
+.toolbar .items{
+  display: flex;
+  align-items: center;
+}
+.card{
+  /* padding: .75rem; */
+  border-radius: .5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(50,50,50,.2);
+  margin-bottom: .75rem;
+}
+.word-break{
+  word-break: break-word;
+}
+.toolbar .pill{
+  margin: 0 .5rem;
+}
+.pill{
+  font-size: .75rem;
+  padding: .25rem .5rem;
+  background-color: rgba(150,150,150,.1);
+  border-radius: 2rem;
+}
+.btn{
+  transition: transform ease-in-out .3s, opacity ease-in-out .3s,;
+}
+.btn:active{
+  opacity: .7;
+  transform: scale(.9);
+}
+.btn.btn-icon:active{
+  background-color:rgba(150,150,150,.1);
+}
+button.btn-icon,
+.btn.btn-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: .25rem;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 1.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  box-shadow: 0;
+  transition: transform ease-in-out .3s, opacity ease-in-out .3s,;
+}
