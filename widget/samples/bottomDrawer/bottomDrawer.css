@@ -145,6 +145,7 @@ html{
   grid-column-gap: .75rem;
   grid-row-gap: 1.5rem;
   padding: 1rem .5rem;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
 }
 .badges-grid .grid-item{
   display: flex;
@@ -183,6 +184,7 @@ html{
 }
 .caption{
   font-size: .75rem;
+  opacity: .75;
   margin: 0;
 }
 @media(min-width: 700px){
