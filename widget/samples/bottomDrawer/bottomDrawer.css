@@ -64,7 +64,7 @@ html{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 3.5rem;
+  height: 3rem;
   background-color: transparent;
   border: 0;
   flex: auto;
@@ -136,4 +136,57 @@ html{
   background-color: transparent;
   box-shadow: 0;
   transition: transform ease-in-out .2s, opacity ease-in-out .1s, background-color ease-in-out .2s;
+}
+
+/* Badge Grid */
+.badges-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: .75rem;
+  grid-row-gap: 1.5rem;
+  padding: 1rem .5rem;
+}
+.badges-grid .grid-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.badges-grid .user-badge{
+  border-radius: .25rem;
+  width: 4rem;
+  height: 4rem;
+  position: relative;
+}
+.badges-grid .grid-item h5{
+  margin: .75rem 0 .125rem 0;
+  font-weight: bold;
+  word-break: break;
+}
+.badges-grid .user-badge img{
+  border-radius: .25rem;
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  overflow: hidden;
+}
+.user-badge .badge-count{
+  display: block;
+  background-color: rgba(120, 120, 120, 0.5);
+  color: #fff;
+  border-radius: 1rem;
+  position: absolute;
+  top: -.75rem;
+  right: calc(0% - .75rem);
+  padding: .25rem .5rem;
+  text-align: left;
+}
+.caption{
+  font-size: .75rem;
+  margin: 0;
+}
+@media(min-width: 700px){
+  .badges-grid{
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
