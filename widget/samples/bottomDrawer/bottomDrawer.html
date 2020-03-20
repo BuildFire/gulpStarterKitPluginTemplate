@@ -24,6 +24,7 @@
           <p class="whiteTheme ellipsis">Title</p>
         </div>
       </div>
+      <!-- Script for tab indicator animation at the botttom of the file -->
       <div class="md-tabs">
         <button class="md-tab active">
           <span class="icon">
@@ -74,5 +75,37 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const navItem = document.querySelectorAll('.md-tab');
+    const secondaryNav = document.querySelector('.md-tabs');
+
+    function navInteraction(item){
+
+        item.forEach(function(element, index){
+            element.classList.add(item.indexOf);
+            element.addEventListener('click', function(){
+                if(element.classList.contains('active')){
+                    return;
+                }else{
+                    item.forEach(e => {
+                        e.classList.remove('active');
+                    })
+                    element.classList.add('active');
+                    if(index === 0){
+                        secondaryNav.classList.remove('pos_2');
+                        secondaryNav.classList.add('pos_1');
+                    } else{
+                        secondaryNav.classList.remove('pos_1');
+                        secondaryNav.classList.add('pos_2');
+                    }
+                }
+            })
+        });
+    }
+
+    navInteraction(navItem);
+</script>
 </body>
+
 </html>

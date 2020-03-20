@@ -68,6 +68,11 @@ html{
   background-color: transparent;
   border: 0;
   flex: auto;
+  transition: background-color ease-in-out .3s;
+}
+.md-tabs .md-tab:hover,
+.md-tabs .md-tab:active{
+  background-color: rgba(150,150,150,.05);
 }
 .md-tabs .active-indicator{
   width: 50%;
@@ -77,6 +82,7 @@ html{
   left: 0;
   bottom: 0;
   height: .125rem;
+  transition: transform cubic-bezier(0.4, 0, 0.2, 1) .25s;
 }
 @keyframes bottom-drawer-fade-in{
   0%{
@@ -186,6 +192,9 @@ html{
   font-size: .75rem;
   opacity: .75;
   margin: 0;
+}
+.md-tabs.pos_2 .active-indicator{
+  transform: translateX(100%);
 }
 @media(min-width: 700px){
   .badges-grid{
