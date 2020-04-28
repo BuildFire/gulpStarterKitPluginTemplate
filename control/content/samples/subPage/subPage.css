@@ -5,7 +5,21 @@
     left: 0px;
     background-color: white;
     /* padding: 1em; */
+    z-index: 1010;
 }
+
+#dialogBackdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffffaa;
+    width: 100vw;
+    display: block;
+    height: 100vh;
+    z-index: 1000;
+}
+
 .subPage.activeFull{
     display: block;
     height: 100%;
