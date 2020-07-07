@@ -16,7 +16,53 @@ const stringsConfig = {
 				, maxLength: 500
 				, required: true
 				, inputType: "wysiwyg"
-			}
+			}, currency: {
+				title: "Currency"
+				, placeholder: "Currency"
+				, defaultValue: "Tax May Apply"
+				, inputType: 'select'
+				, options: [{
+                    label:"&#36; USD, AUD, NZD, CAD, Peso, Real, etc. ",
+                    value: '&#36;'
+                },
+                {
+                	label:"&#128; Euro",
+                    value: '&#128;'
+                },
+                {
+                    label:"&#165; Yuan and Yen",
+                    value: "&#165;"
+                },
+                {
+                    label:"DM Duetsche Mark",
+                    value:"DM"
+                },
+                {
+                    label:"&#8355; Franc",
+                    value:"&#8355;"
+                },
+                {
+                    label:"&#163; Pound",
+                    value:"&#163;"
+                },
+                {
+                    label:"&#8356; Lira",
+                    value:"&#8356;"
+                },
+                {
+                    label:"<del>P</del> Rouble",
+                    value:'<del>P</del>'
+                },
+                {
+                    label:"SFr Switz Franc",
+                    value:"SFr"
+                },
+                {
+                    label:"ZAR Rand",
+                    value:"ZAR"
+                }]
+				, defaultValue: "&#36;"
+			},
 		}
 	}
 	, screenTwo: {

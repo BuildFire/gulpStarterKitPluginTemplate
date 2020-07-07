@@ -132,7 +132,7 @@ buildfire.services.Strings = class{
 				else
 					e.innerHTML=v;
 			}
-			else if (e.nodeName =="INPUT")
+			else if (e.nodeName == "INPUT" || e.nodeName == "SELECT")
 				e.value=v;
 			else
 				e.innerHTML=v;

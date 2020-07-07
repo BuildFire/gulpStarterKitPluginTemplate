@@ -82,13 +82,22 @@ const stringsUI = {
 		this.createAndAppend('label', labelObj.title, [], div);
 		let inputElement;
 		let id= prop ;
-		let inputType= labelObj.inputType?labelObj.inputType.toLowerCase():"";
+		let inputType= labelObj.inputType ? labelObj.inputType.toLowerCase() : "";
 
 		if (
 			labelObj.inputType &&
 			["textarea","wysiwyg"].indexOf(inputType)>=0
 		)
 			inputElement = this.createAndAppend('textarea', '', ["form-control","bf" + inputType], div);
+		else if (labelObj.inputType && "select".indexOf(inputType)>=0) {
+			inputElement = this.createAndAppend('select', '', ["form-control"], div);
+			if(labelObj.options) {
+				labelObj.options.forEach(option => {
+					let optionElement = this.createAndAppend('option', option.label, [], inputElement);
+					optionElement.value = option.value;
+				});
+			}
+		}
 		else {
 			inputElement = this.createAndAppend('input', '', ["form-control"], div);
 			inputElement.type = labelObj.inputType || "text";
@@ -111,8 +120,19 @@ const stringsUI = {
 		if(inputType=="wysiwyg"){
 			//handled outside by tinyMCE
 		}
+		else if(inputType == "select") {
+			inputElement.onchange = (e) => {
+				stringsUI.debounce(prop, ()=>{
+					if (inputElement.checkValidity()) {
+						inputElement.classList.remove("bg-danger");
+						stringsUI.onSave(prop, inputElement.value || inputElement.innerHTML);
+					}
+					else
+						inputElement.classList.add("bg-danger");
+				});
+			};
+		}
 		else {
-
 			inputElement.onkeyup = (e) => {
 				stringsUI.debounce(prop, ()=>{
 					if (inputElement.checkValidity()) {
@@ -145,5 +165,4 @@ const stringsUI = {
 		return obj;
 	}
 };
-
 
